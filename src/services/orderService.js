@@ -27,7 +27,7 @@ const changeOrderState = async (id, state) => {
         for (const item of order.products) {
             await productRepo.updateProductStock(item.productId, -item.quantity);
         }
-        // Create a sale
+
         await saleRepo.createSale({
             orderId: order._id,
             products: order.products,
